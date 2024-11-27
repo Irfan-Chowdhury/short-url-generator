@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\ShortUrl;
-
 it('Home Page Load', function () {
 
     $response = $this->get('/');
