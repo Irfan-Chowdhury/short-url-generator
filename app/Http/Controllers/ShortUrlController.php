@@ -5,12 +5,18 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\ShortUrl;
+use App\Services\ShortUrlService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
 
 final class ShortUrlController
 {
+    public $shortService;
+
+    public function __construct(ShortUrlService $shortUrlService)
+    {
+        $this->shortService = $shortUrlService;
+    }
+
     public function home()
     {
         return view('home');
@@ -20,35 +26,15 @@ final class ShortUrlController
     {
         $request->validate(['original_url' => 'required|url']);
 
-        $shortCode = self::generateUniqueCode();
+        $shortUrl = $this->shortService->generateShortUrl($request->original_url);
 
-        ShortUrl::create([
-            'original_url' => $request->original_url,
-            'short_code' => $shortCode
-        ]);
-
-        return redirect()->back()->with('shortUrl', url($shortCode));
+        return redirect()->back()->with('shortUrl', $shortUrl);
     }
 
     public function redirect(string $shortCode)
     {
-        $data = ShortUrl::query()
-                ->where('short_code',$shortCode)
-                ->firstOrFail();
+        $getOriginalUrl  = $this->shortService->getOriginalUrl($shortCode);
 
-        $data->increment('click_count');
-
-        return redirect($data->original_url);
+        return redirect($getOriginalUrl);
     }
-
-    private function generateUniqueCode(): string
-    {
-        do {
-            $code = Str::random(6);
-        } while (ShortUrl::where('short_code', $code)->exists());
-
-        return $code;
-    }
-
-
 }
