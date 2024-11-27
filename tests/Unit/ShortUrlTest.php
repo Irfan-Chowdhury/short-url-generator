@@ -4,9 +4,14 @@ use App\Models\ShortUrl;
 use App\Services\ShortUrlService;
 use Illuminate\Support\Str;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class); // Reset the database after each test
+
 beforeEach(function () {
     $this->shortUrlService = new ShortUrlService();
 });
+
 
 
 test('Exist original url', function () {
@@ -41,10 +46,27 @@ test('Generate new short Url', function () {
 });
 
 
-test('ShortCode is a string type', function () {
+test('ShortCode return a string type', function () {
     $getShortCode = $this->shortUrlService->generateUniqueCode();
 
     expect($getShortCode)->toBeString();
+});
+
+
+test('ShortCode parameter Type must be a string', function () {
+
+    $shortCode = 'ABC123';
+
+    ShortUrl::factory()->create([
+        'short_code' => $shortCode,
+        'original_url' => 'https://pestphp.com/',
+        'click_count' => 0,
+    ]);
+
+    $getOriginalUrl = $this->shortUrlService->getOriginalUrl($shortCode);
+
+    expect($shortCode)->toBeString();
+    expect($getOriginalUrl)->toBe('https://pestphp.com/');
 });
 
 

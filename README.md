@@ -45,19 +45,32 @@ php artisan serve
 
 
 ## Test Case Result 
-Just run the command
+Here two type test. Feature and Unit Test. Just run the command
 ```bash
 php artisan test
 ```
 
-<img src="">
+<img src="https://snipboard.io/LVf9yI.jpg">
 
 
 ### Visit Page
 
 - Home Page : http://127.0.0.1:8000
 
-<img src="">
+<img src="https://snipboard.io/xRhpXc.jpg">
+
+
+### Validation
+
+- Field must be required : 
+
+<img src="https://snipboard.io/NELT02.jpg">
+
+<br>
+
+- When try to input invalid url : 
+
+<img src="https://snipboard.io/U4enZR.jpg">
 
 <br>
 
