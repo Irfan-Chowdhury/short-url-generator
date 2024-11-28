@@ -1,27 +1,27 @@
 @extends('layouts.master')
 
+@section('title','All URL List')
+
 @section('content')
 <div class="container">
-    <h2 class="text-center">Vaccine Center List</h2>
+    <h2 class="text-center">All Users</h2>
 
     <div class="mt-5 row">
         <div class="col-12">
             <table id="dataTable" class="table">
                 <thead>
                 <tr>
-                    <th scope="col">#SL</th>
-                    <th scope="col">Center Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Daily Limit</th>
+                    <th>Short Links</th>
+                    <th class="text-center">Total Clicks</th>
+                    <th class="text-center">Created</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @forelse ($vaccineCenters as $key => $item)
+                    @forelse ($urlData as $item)
                         <tr>
-                            <th scope="row">{{$key+1}}</th>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->address}}</td>
-                            <td>{{$item->daily_limit}}</td>
+                            <td><a href="{{$item->short_url}}" target="__blank">{{$item->short_url}}</a></td>
+                            <td class="text-center">{{$item->click_count}}</td>
+                            <td class="text-center">{{$item->created}}</td>
                         </tr>
                     @empty
                         <tr>
@@ -37,11 +37,18 @@
 </div>
 @endsection
 
+
 @push('scripts')
 
     <script>
         $(document).ready(function () {
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+                "order": [[2, "asc"]],
+                "columnDefs": [{
+                    "targets": [2],
+                    "orderable": true
+                }]
+            });
         });
     </script>
 

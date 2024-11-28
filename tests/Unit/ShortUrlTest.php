@@ -13,7 +13,6 @@ beforeEach(function () {
 });
 
 
-
 test('Exist original url', function () {
     // $this->withoutExceptionHandling();
 
@@ -98,4 +97,12 @@ test('Short URL is unique', function () {
 
     // Assert that the new generated url not same. This is unique
     expect($makeShortURL)->not->toBe($getNewShortURL);
+});
+
+
+
+test('Get All Short URLs Data', function () {
+    $getData = $this->shortUrlService->getAll();
+
+    expect($getData)->toBeArray();
 });

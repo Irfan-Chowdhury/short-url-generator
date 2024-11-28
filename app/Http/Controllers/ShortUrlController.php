@@ -19,7 +19,7 @@ final class ShortUrlController
 
     public function home()
     {
-        return view('home');
+        return view('pages.home');
     }
 
     public function shorten(Request $request)
@@ -36,5 +36,13 @@ final class ShortUrlController
         $getOriginalUrl  = $this->shortService->getOriginalUrl($shortCode);
 
         return redirect($getOriginalUrl);
+    }
+
+
+    public function allUrlList()
+    {
+        $urlData = $this->shortService->getAll();
+
+        return view('pages.all-url-list', compact('urlData'));
     }
 }

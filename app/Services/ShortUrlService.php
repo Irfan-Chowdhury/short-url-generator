@@ -68,4 +68,21 @@ final class ShortUrlService
         return $data->original_url;
     }
 
+    public function getAll()
+    {
+        $data =  ShortUrl::select('id','original_url', 'short_code', 'click_count', 'created_at')
+                ->orderBy('created_at', 'DESC')
+                ->get()
+                ->map(function($item) {
+                    return [
+                        'original_url'=> $item->original_url,
+                        'short_url'=> url($item->short_code),
+                        'click_count'=> $item->click_count,
+                        'created'=> $item->created_at->format('d F, Y')
+                    ];
+                });
+
+        return json_decode(json_encode($data), FALSE);
+    }
+
 }

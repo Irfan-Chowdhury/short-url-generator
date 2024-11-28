@@ -5,11 +5,16 @@
 </div>
 
 
-## Configuration
+### Configuration
 - PHP-8.1
 - Laravel-10
 
 ## How to run this project
+
+### Clone the Project
+```bash
+git clone git@github.com:Irfan-Chowdhury/short-url-generator.git
+``` 
 
 ### ENV Setup 
 - Please create `.env` file and copy-paste data from the `.env.example` file.
@@ -45,7 +50,10 @@ php artisan serve
 
 
 ## Test Case Result 
-Here two type test. Feature and Unit Test. Just run the command
+Here two type test. Feature and Unit Test. Just run below the command.
+<br>
+(Database will be refresh after running the tests.)
+
 ```bash
 php artisan test
 ```
