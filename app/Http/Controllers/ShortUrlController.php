@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Models\ShortUrl;
 use App\Services\ShortUrlService;
 use Illuminate\Http\Request;
 
@@ -33,11 +32,10 @@ final class ShortUrlController
 
     public function redirect(string $shortCode)
     {
-        $getOriginalUrl  = $this->shortService->getOriginalUrl($shortCode);
+        $getOriginalUrl = $this->shortService->getOriginalUrl($shortCode);
 
         return redirect($getOriginalUrl);
     }
-
 
     public function allUrlList()
     {

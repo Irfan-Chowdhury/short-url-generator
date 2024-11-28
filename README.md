@@ -7,16 +7,6 @@
 ### Task Overview
 This project implements a URL shortening service, which allows users to shorten long URLs into short, easy-to-share links. The project includes the core functionality of the service. Cover unit tests for various scenarios. Additional optimizations for handling duplicate long URLs to ensure database efficiency and display all short urls records in a data table.
 
-<!-- ### Project Features:
-- <b>URL Shortening:</b> Allows users to input a long URL, which is then shortened to a unique code.
-
-- <b>Click Tracking:<b> Keeps track of how many times each short URL is clicked.
-
-- <b>Validation:</b> Ensures that only valid URLs are accepted.
-
-- <b>Duplicate Long URL Handling:</b> If a user submits the same long URL, the system returns the existing short URL instead of creating a new one.
- -->
-
 ### 1. Data Structure : Hash Table
 
 A `hash table`  is a data structure that maps keys to values using a hashing function. In the context of this URL shortening service, the hash table concept is applied to manage the relationship between the `original URL` and its corresponding `short code`.
@@ -69,12 +59,13 @@ Created another page to display all shortened URL information, including the cre
 ## Configuration
 - PHP-8.1
 - Laravel-10
+- MySql
 
 ## How to run this project
 
 ### 1. Clone the Project
 ```bash
-git clone git@github.com:Irfan-Chowdhury/short-url-generator.git
+git clone git@github.com:Irfan-Chowdhury/url-shortening-service.git
 cd <repository_directory>
 ``` 
 
