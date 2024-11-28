@@ -52,11 +52,12 @@
             @csrf
             <div class="input-group mb-3">
                 <input
-                    type="text"
+                    type="url"
                     name="original_url"
                     class="form-control @error('original_url') is-invalid @enderror"
                     placeholder="https://example.com"
                     value="{{ old('original_url') }}"
+                    required
                 >
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">Shorten</button>

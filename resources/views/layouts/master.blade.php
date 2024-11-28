@@ -19,10 +19,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item {{ Request::routeIs('home') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Request::routeIs('all_url_list') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('all_url_list') }}">All Urls</a>
                 </li>
             </ul>
