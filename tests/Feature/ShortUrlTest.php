@@ -19,7 +19,7 @@ test('Home page Http Check', function () {
 test('Home page correct view', function() {
     $this->get(route('home'))
         ->assertOk()
-        ->assertViewIs('home');
+        ->assertViewIs('pages.home');
 });
 
 

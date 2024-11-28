@@ -4,7 +4,7 @@
 
 </div>
 
-### Task Overview
+## Task Overview
 This project implements a URL shortening service, which allows users to shorten long URLs into short, easy-to-share links. The project includes the core functionality of the service. Cover unit tests for various scenarios. Additional optimizations for handling duplicate long URLs to ensure database efficiency and display all short urls records in a data table.
 
 ### 1. Data Structure : Hash Table
@@ -74,7 +74,7 @@ cd <repository_directory>
 composer install
 ```
 
-### 3. Set up your `.env` file and configure the database:: 
+### 3. Set up your `.env` file and configure the database:
 ```bash
 cp .env.example .env
 php artisan key:generate
