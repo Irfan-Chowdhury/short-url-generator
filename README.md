@@ -56,6 +56,9 @@ While the task did not explicitly require handling duplicate long URLs, I implem
 - <b>Display all Short URLs:</b> <br>
 Created another page to display all shortened URL information, including the creation date and the total number of hits. The data is sorted in descending order by the creation date.
 
+- <b>Count total clicks :</b> <br>
+Created another feature to check how much click on a specific short url
+
 ## Configuration
 - PHP-8.1
 - Laravel-10
