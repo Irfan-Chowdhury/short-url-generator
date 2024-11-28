@@ -59,10 +59,12 @@ Created another page to display all shortened URL information, including the cre
 - <b>Count total clicks :</b> <br>
 Created another feature to check how much click on a specific short url
 
-## Configuration
-- PHP-8.1
-- Laravel-10
-- MySql
+## Technologies
+- <b>Programming Language:</b> PHP 8.1
+- <b>Framework:</b> Laravel 10
+- <b>Code Formatter:</b> [Laravel Pint](https://laravel.com/docs/11.x/pint)
+- <b>Testing Framework:</b> [PEST](https://pestphp.com)
+- <b>Database:</b> MySQL
 
 ## How to run this project
 
@@ -142,12 +144,6 @@ php artisan test
 <img src="https://snipboard.io/U4enZR.jpg">
 
 <br>
-
-
-## Additional Packages Used
-- #### [Laravel Pint](https://github.com/laravel/pint)  (to style the code format)
-- #### [PEST Testing Framework](https://pestphp.com) (For unit testing on this application)
-
 
 ## Conclusion
 This URL shortening service meets the core requirements of shortening URLs. The implementation ensures efficient database usage, user-friendly behavior, and allows for easy scaling in the future.
